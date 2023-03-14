@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  {% include 'base.html' %} 
+<h1>Bienvenue {{ request.user.username }} !<br/>
+    Vous êtes connecté
+</h1>
+
+
+<ul>
+  <li>Regression : scatter, heatmap, lineplot, boite à moustache / linear reg, knn, arbre </li>
+  <li>Classsification : scatter, heatmap, barplot, piechart / logistic, arbre, knn</li>
+  <li>Clustering : scatter, heatmap, barplot, piechart, ternaryplot, Clustergram / kmeans, CAH, Dbscan</li>
+</ul>
+
+
+</div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Suppression de compte</h4>
+        </div>
+        <div class="modal-body">
+          <p>Es-tu sûr de vouloir supprimer ton compte ?</p>
+        </div>
+        <div class="modal-footer">
+            <a href="{% url 'suppression' user.id %}">
+                <button type="button" class="btn btn-danger">Valider</button>
+            </a>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

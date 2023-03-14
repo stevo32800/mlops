@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+{% include 'base.html' %} 
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <label for="target_column">Nom de la colonne cible (Y) :</label>
+        <input type="text" name="target_column" id="target_column" required><br><br>
+    <button type="submit">Entraîner les modèles</button>
+</form>
+
+<div class="col-sm-12">
+    {% autoescape off %}
+      {{ dataframe }}
+    {% endautoescape %}
+  </div>
+  <div class="col-sm-12">
+  <div class="row">
+      <div class="col-xs-12">
+        Résultat du clustering DBScan :<br>
+        <ul>
+          <li>n_clusters_ : {{ n_clusters_}}</li>
+          <li>n_noise_ : {{n_noise_}}</li>
+          <li>Homogeneity : {{Homogeneity}}</li>          
+        </ul>
+      </div>
+    </div> 
+</div>
+  </div>
+  <div class="col-sm-12">
+  <div class="row">
+    <div class="col-xs-12">
+        Scores moyens pour chaque modèle :<br>
+      <ul>
+        <li>mse_lr : {{ mse_lr }}</li>
+        <li>mse_knn : {{mse_knn}}</li>
+        <li>mse_rf : {{mse_rf}}</li>          
+      </ul>
+    </div>
+  </div> 
+</div>
+</div>
+
+<button data-toggle="collapse" data-target="#demo" class="btn btn-primary">Afficher/cacher les graphiques</button>
+<div id="demo" class="collapse">
+  <div class="row">
+    <div class="col-sm-6">
+      {% autoescape off %}
+        {{ graphique }}
+      {% endautoescape %}
+    </div>
+
+    <div class="col-sm-6">
+      {% autoescape off %}
+        {{ graph2 }}
+      {% endautoescape %}
+    </div>
+
+    <div class="col-sm-6">
+      {% autoescape off %}
+        {{ graph3 }}
+      {% endautoescape %}
+    </div>
+
+    <div class="col-sm-6">
+      {% autoescape off %}
+        {{ graph4 }}
+      {% endautoescape %}
+    </div>
+  </div>

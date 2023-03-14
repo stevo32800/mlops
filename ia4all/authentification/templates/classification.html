@@ -1,0 +1,28 @@
+
+<button data-toggle="collapse" data-target="#demo" class="btn btn-primary">Afficher/cacher les graphiques</button>
+<div id="demo" class="collapse">
+  <div class="row">
+    <div class="col-sm-6">
+      {% autoescape off %}
+        {{ graphique }}
+      {% endautoescape %}
+    </div>
+
+    <div class="col-sm-6">
+      {% autoescape off %}
+        {{ graph2 }}
+      {% endautoescape %}
+    </div>
+
+    <div class="col-sm-6">
+      {% autoescape off %}
+        {{ graph3 }}
+      {% endautoescape %}
+    </div>
+
+    <div class="col-sm-6">
+      {% autoescape off %}
+        {{ graph4 }}
+      {% endautoescape %}
+    </div>
+  </div>
